@@ -15,6 +15,17 @@ const PointCloudHero = dynamic(() => import('@/components/PointCloudHero'), {
   )
 })
 
+const Studio3D = dynamic(() => import('@/components/Studio3D'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-screen bg-slate-950 flex items-center justify-center border-t border-teal-500/10">
+      <span className="text-teal-500/30 font-mono text-sm tracking-[0.2em] animate-pulse">
+        LOADING 3D STUDIO...
+      </span>
+    </div>
+  )
+})
+
 export default function Page() {
   return (
     <main className="min-h-screen bg-[#0a0f1a]">
@@ -23,9 +34,9 @@ export default function Page() {
         <PointCloudHero />
       </section>
 
-      {/* Section 2: Original Scanner App */}
-      <section>
-        <iframe src="/index.html" className="w-full h-screen border-0" />
+      {/* Section 2: Studio 3D App */}
+      <section className="border-t border-slate-800/50">
+        <Studio3D />
       </section>
     </main>
   );
